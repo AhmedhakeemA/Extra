@@ -42,14 +42,14 @@ class RepositoryPattern extends Command
     {
         $name = $this->argument('name');
 
-        // RepositoryService::ImplementNow($name);
+        RepositoryService::ImplementNow($name);
 
-        // Artisan::call('make:model ' . $name . '  -m');
+        Artisan::call('make:model ' . $name . '  -m');
         // Artisan::call('make:factory ' . $name . 'Factory  --model=' . $name);
 
-        // shell_exec('composer dump-autoload');
+        shell_exec('composer dump-autoload -o');
 
-        // $this->info("Repository Service pattern implemented for model " . $name);
+        $this->info("Repository Service pattern implemented for model " . $name);
 
         $message = '$this->app->bind(' . $name . 'RepositoryInterface::class, ' . $name . 'Repository::class);';
 
