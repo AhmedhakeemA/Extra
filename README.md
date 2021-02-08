@@ -2,6 +2,8 @@
 
 This is Laravel Package help during development process by adding extra command to create service repository pattern and creating although classes or interface or Traits Only just by one command
 
+![Image of Yaktocat](https://files.fm/thumb_show.php?i=apqxzkw93)
+
 ## Installation
 
 Use the package manager [composer](https://getcomposer.org/) to install extra.
@@ -52,7 +54,7 @@ php artisan extra:sr  Product
 
 #### Result :
 
-![Image of Yaktocat](https://files.fm/thumb_show.php?i=apqxzkw93)
+![Image of Yaktocat](https://files.fm/thumb_show.php?i=6hc376ne8)
 
 #### After This you need to add result from terminal to AppServiceProvider as the following :
 
