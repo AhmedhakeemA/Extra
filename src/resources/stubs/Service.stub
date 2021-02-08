@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Services;
+
+use App\Repositories\{{modelName}}Repository;
+
+class {{modelName}}Service
+{
+
+    protected {{modelName}}Repository ${{modelName}}Repository;
+
+    public function __construct({{modelName}}Repository ${{modelName}}Repository)
+    {
+        $this->{{modelName}}Repository = ${{modelName}}Repository;
+    }
+
+    /**
+     * Get's a record by it's ID
+     *
+     * @param int
+     * @return collection
+     */
+    public function get($id)
+    {
+        return $this->{{modelName}}Repository->get($id);
+    }
+
+    /**
+     * Get's all records.
+     *
+     * @return mixed
+     */
+    public function all()
+    {
+        return  $this->{{modelName}}Repository->all();
+    }
+
+    /**
+     * Deletes a record.
+     *
+     * @param int
+     */
+    public function delete($id)
+    {
+       return $this->{{modelName}}Repository->delete($id);
+    }
+
+    /**
+     * Updates a post.
+     *
+     * @param int
+     * @param array
+     */
+    public function update($id, array $data)
+    {
+        $this->{{modelName}}Repository->update($id, $data);
+    }
+}

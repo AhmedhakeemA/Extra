@@ -1,0 +1,47 @@
+{
+    "name": "ahmedhakeem/extra",
+    "description": "This package added more feature in development environment",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AhmedHakeem",
+            "email": "ahmed.abdelhakim.selim@gmail.com"
+        }
+    ],
+    "keywords": [
+        "laravel",
+        "laravel8",
+        "laravel-repository-pattern",
+        "laravel-Repository-design-pattern",
+        "laravel-extra-package",
+        "laravel-extra-create-class",
+        "laravel-extra-create-trait",
+        "laravel-extra-create-interface",
+        "laravel-extra-commands"
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "require-dev": {
+        "laravel/framework": ">=8"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+
+    "autoload": {
+        "psr-4": {
+            "Hakeem\\Extra\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hakeem\\Extra\\ExtraServiceProvider"
+            ],
+            "aliases": {
+                "RepositoryPattern": "Hakeem\\Extra\\Facades\\RepositoryPattern"
+            }
+        }
+    }
+}
