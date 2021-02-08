@@ -91,7 +91,7 @@ class AppServiceProvider extends ServiceProvider
 ### Create Class Command Command:
 
 ```
-php artisan extra:class  {nameSpace}\{className}
+php artisan extra:class  {nameSpace}/{className}
 ```
 
 This will create Class inside Make Folder in app folder and path will be like this : "app\namespace\ClassName"
@@ -99,7 +99,7 @@ This will create Class inside Make Folder in app folder and path will be like th
 #### Ex:
 
 ```
-php artisan extra:class  Helpers\VatCalculator
+php artisan extra:class  Helpers/VatCalculator
 ```
 
 This will create class VatCalculator inside Helpers folder in app folder
@@ -107,7 +107,7 @@ This will create class VatCalculator inside Helpers folder in app folder
 ### Create Interface Command Command:
 
 ```
-php artisan extra:interface  {nameSpace}\{interfaceName}
+php artisan extra:interface  {nameSpace}/{interfaceName}
 ```
 
 This will create Class inside Make Folder in app folder and path will be like this : "app\namespace\interfaceName"
@@ -115,7 +115,7 @@ This will create Class inside Make Folder in app folder and path will be like th
 #### Ex:
 
 ```
-php artisan extra:interface  Helpers\VatCalculatorInterface
+php artisan extra:interface  Helpers/VatCalculatorInterface
 ```
 
 This will create interface VatCalculator inside Helpers folder in app folder
@@ -123,7 +123,7 @@ This will create interface VatCalculator inside Helpers folder in app folder
 ### Create Trait Command Command:
 
 ```
-php artisan extra:interface  {nameSpace}\{traitName}
+php artisan extra:interface  {nameSpace}/{traitName}
 ```
 
 This will create Class inside Make Folder in app folder and path will be like this : "app\namespace\traitName"
