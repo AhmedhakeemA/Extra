@@ -52,7 +52,7 @@ php artisan extra:sr  Product
 
 #### Result :
 
-![Image of Yaktocat](https://lh6.googleusercontent.com/7Lg2APU9zQd7HoIZ2H45egM5kpHVUofReWsrffbF63TUF1hl4CisYwYbCTKk-tkCY8LXGXppmQZLPH6GZ6-B=w1848-h947-rw)
+![Image of Yaktocat](https://files.fm/thumb_show.php?i=apqxzkw93)
 
 #### After This you need to add result from terminal to AppServiceProvider as the following :
 
