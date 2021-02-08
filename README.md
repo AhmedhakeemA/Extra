@@ -42,6 +42,7 @@ php artisan extra:sr  Product
 - Repository Interface
 - Model
 - Migration file
+- Factory
 
 #### Result For Command :
 
@@ -51,10 +52,275 @@ php artisan extra:sr  Product
 - ProductRepositoryInterface
 - Product
 - Migration File ex "2014_10_12_000000_create_products_table.php"
+- ProductFactory
 
 #### Result :
 
-![Image of Yaktocat](https://files.fm/thumb_show.php?i=6hc376ne8)
+![Image of Yaktocat](https://files.fm/thumb_show.php?i=vmrqsqud4)
+
+```
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Services\ProductService;
+
+class ProductController extends Controller
+{
+
+    protected  $service;
+
+    public function __construct(ProductService $service)
+    {
+        $this->service = $service;
+    }
+
+
+}
+
+```
+
+```
+<?php
+
+namespace App\Services;
+
+use App\Repositories\ProductRepository;
+
+class ProductService
+{
+
+    protected ProductRepository $ProductRepository;
+
+    public function __construct(ProductRepository $ProductRepository)
+    {
+        $this->ProductRepository = $ProductRepository;
+    }
+
+    /**
+     * Get's a record by it's ID
+     *
+     * @param int
+     * @return collection
+     */
+    public function get($id)
+    {
+        return $this->ProductRepository->get($id);
+    }
+
+    /**
+     * Get's all records.
+     *
+     * @return mixed
+     */
+    public function all()
+    {
+        return  $this->ProductRepository->all();
+    }
+
+    /**
+     * Deletes a record.
+     *
+     * @param int
+     */
+    public function delete($id)
+    {
+       return $this->ProductRepository->delete($id);
+    }
+
+    /**
+     * Updates a post.
+     *
+     * @param int
+     * @param array
+     */
+    public function update($id, array $data)
+    {
+        $this->ProductRepository->update($id, $data);
+    }
+}
+
+
+```
+
+```
+<?php
+
+namespace App\Repositories;
+
+interface ProductRepositoryInterface
+{
+    /**
+     * Get's a record by it's ID
+     *
+     * @param int
+     */
+    public function get($id);
+
+    /**
+     * Get's all records.
+     *
+     * @return mixed
+     */
+    public function all();
+
+    /**
+     * Deletes a record.
+     *
+     * @param int
+     */
+    public function delete($id);
+
+    /**
+     * Updates a record.
+     *
+     * @param int
+     * @param array
+     */
+    public function update($id, array $data);
+}
+
+
+```
+
+```
+<?php
+
+
+namespace App\Repositories;
+
+use App\Models\Product;
+
+
+class ProductRepository implements ProductRepositoryInterface
+{
+    /**
+     * Get's a record by it's ID
+     *
+     * @param int
+     * @return collection
+     */
+    public function get($id)
+    {
+        return Product::find($id);
+    }
+
+    /**
+     * Get's all records.
+     *
+     * @return mixed
+     */
+    public function all()
+    {
+        return Product::all();
+    }
+
+    /**
+     * Deletes a record.
+     *
+     * @param int
+     */
+    public function delete($id)
+    {
+        Product::destroy($id);
+    }
+
+    /**
+     * Updates a post.
+     *
+     * @param int
+     * @param array
+     */
+    public function update($id, array $data)
+    {
+        Product::find($id)->update($data);
+    }
+}
+
+```
+
+```
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    use HasFactory;
+}
+
+
+```
+
+```
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateProductsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('products', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('products');
+    }
+}
+
+```
+
+```
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Product;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class ProductFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Product::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            //
+        ];
+    }
+}
+
+```
 
 #### After This you need to add result from terminal to AppServiceProvider as the following :
 
@@ -74,6 +340,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        //
         $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
     }
 

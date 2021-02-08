@@ -21,7 +21,7 @@ class RepositoryPattern extends Command
      * @var string
      */
     protected $description = 'Create Repository Pattern with full Development Line using single command contain
-                              (Controller ,Model, Migration,Service,Repository, Repository Interface)';
+                              (Controller ,Model, Migration,Factory,Service,Repository, Repository Interface)';
 
     /**
      * Create a new command instance.
@@ -45,7 +45,7 @@ class RepositoryPattern extends Command
         RepositoryService::ImplementNow($name);
 
         Artisan::call('make:model ' . $name . '  -m');
-        // Artisan::call('make:factory ' . $name . 'Factory  --model=' . $name);
+        Artisan::call('make:factory ' . $name . 'Factory  --model=' . $name);
 
         shell_exec('composer dump-autoload -o');
 
