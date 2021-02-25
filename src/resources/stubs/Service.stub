@@ -9,7 +9,7 @@ class {{modelName}}Service
 
     protected {{modelName}}Repository ${{modelName}}Repository;
 
-    public function __construct({{modelName}}Repository ${{modelName}}Repository)
+    public function __construct({{modelName}}RepositoryInterface ${{modelName}}Repository)
     {
         $this->{{modelName}}Repository = ${{modelName}}Repository;
     }
