@@ -85,14 +85,14 @@ class ProductController extends Controller
 
 namespace App\Services;
 
-use App\Repositories\ProductRepository;
+use App\Repositories\ProductRepositoryInterface;
 
 class ProductService
 {
 
     protected ProductRepository $ProductRepository;
 
-    public function __construct(ProductRepository $ProductRepository)
+    public function __construct(ProductRepositoryInterface $ProductRepository)
     {
         $this->ProductRepository = $ProductRepository;
     }
